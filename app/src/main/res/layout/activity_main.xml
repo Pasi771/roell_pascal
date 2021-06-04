@@ -11,6 +11,7 @@
         class="com.example.roell_pascal.GameView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
     <view
         android:id="@+id/playGameView"
         class="com.example.roell_pascal.playGameView"

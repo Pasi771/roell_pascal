@@ -15,13 +15,8 @@ public class gameArray   {
     public float cellSize, hMargin, vMargin;
     private int width, height;
 
-    public gameArray(Context context, int width, int height){
-        this.context = context;
-        this.width = width;
-        this.height = height;
-       // Log.d("Debug", "gameArray: "+ width + ","+ height);
-        createGameField();
-        fillGameField();
+    public gameArray(){
+
     }
 
     private void createGameField(){
@@ -33,8 +28,9 @@ public class gameArray   {
             }
         }
     }
+    /*
     private void getFileData() {
-        Log.d("Debug", "getFileData: ");
+        //Log.d("Debug", "getFileData: ");
         try {
             InputStream is = context.getAssets().open("Maze_1.txt");
             int size = is.available();
@@ -79,7 +75,9 @@ public class gameArray   {
             }
         }
     }
-    public void calculateSizes(){
+    */
+
+    public void calculateSizes(int width, int height){
         Log.d("Debug", "calculateSizes: "+ width + "," +height);
         Log.d("Debug", "calculateSizes: "+ COLS + "," +ROWS);
         if(width/height < COLS/ROWS) {
@@ -97,22 +95,23 @@ public class gameArray   {
         vMargin = (height - ROWS*cellSize)/2;
     }
 
-    public float getCellSize() {
-        calculateSizes();
+    public float getCellSize(int width, int height) {
+        calculateSizes( width, height);
         return cellSize;
     }
 
-    public float getvMargin() {
-        calculateSizes();
+    public float getvMargin(int width, int height) {
+        calculateSizes(width, height);
         return vMargin;
     }
 
-    public float gethMargin() {
-        calculateSizes();
+    public float gethMargin(int width, int height) {
+        calculateSizes(width, height);
         return hMargin;
     }
 
     public Cell[][] getGameField() {
+        createGameField();
         return gameField;
     }
 

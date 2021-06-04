@@ -39,13 +39,14 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         myPlayGameView = findViewById(R.id.playGameView);
         myGameView = findViewById(R.id.GameView);
-
+        myPlayGameView.getMazeData(myGameView.getMyMaze());
 
         mSensorManager = (SensorManager)getSystemService(Context.SENSOR_SERVICE);
         mMovementSensor = new MovementSensor() {
             @Override
             public void onTilt(float xVal, float yVal) {
                 if (Math.abs(xVal) > 2 || Math.abs(yVal) > 2) {
+
                     myPlayGameView.makeMove(xVal, yVal);
                 }
 
@@ -95,7 +96,6 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, appBarConfiguration)
                 || super.onSupportNavigateUp();
     }
-    public void test(){
 
-    }
+
 }
